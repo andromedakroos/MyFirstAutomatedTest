@@ -21,7 +21,7 @@ public class SignInTest {
         Random random = new Random();
         WebDriverWait wait = new WebDriverWait(driver, duration);
 
-        driver.manage().window().setSize(new Dimension(900,800 ));
+        driver.manage().window().setSize(new Dimension(1920,1080 ));
         driver.get("https://www.influential.co");
         WebElement navbar = driver.findElement(By.id("navbar"));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("navbar")));
@@ -45,7 +45,7 @@ public class SignInTest {
         driver.findElement(By.id("service_to_demo")).sendKeys("I");
         driver.findElement(By.id("referred_by")).sendKeys("S");
         driver.findElement(By.cssSelector("[type=\"submit\"]")).click();
-        driver.quit();
+//        driver.quit();
 
     }
 }
