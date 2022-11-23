@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Random;
 
-public class AmazonSignUpTest {
+public class AmazonTests {
     WebDriver driver = new ChromeDriver();
     Duration duration = Duration.ofSeconds(10);
     WebDriverWait wait = new WebDriverWait(driver, duration);
@@ -36,5 +36,22 @@ public class AmazonSignUpTest {
         driver.findElement(By.id("ap_password_check")).sendKeys("qwerty-123");
 
         driver.findElement(By.id("continue")).click();
+    }
+
+    @Test
+    public void signInTest(){
+        driver.manage().window().setSize(new Dimension(1920, 1080));
+        driver.get("https://www.amazon.com/");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nav-link-accountList")));
+        driver.findElement(By.id("nav-link-accountList")).click();
+
+        driver.findElement(By.id("ap_email")).sendKeys("andromedakroos@gmail.com");
+        driver.findElement(By.id("continue")).click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ap_password")));
+        driver.findElement(By.id("ap_password")).sendKeys("qwerty-123");
+
+        driver.findElement(By.cssSelector("[type=\"checkbox\"]")).click();
+        driver.findElement(By.id("signInSubmit")).click();
     }
 }
