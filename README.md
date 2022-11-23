@@ -1,0 +1,1 @@
+# Мy first automated tests
